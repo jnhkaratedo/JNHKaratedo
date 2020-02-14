@@ -16,6 +16,79 @@
 	<?php include'_navbar.php'; 
 	require_once('connection.php');
 	$Class_Id = $_GET['Class_id'];
+	
+  ?>
+	<!-- modal add student start-->
+	<!-- Modal -->
+	<div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="addStudentModalLabel">Add Students</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div class="form-group row">
+						<label for="SearchStudent" class="col-sm-2 col-form-label">Search</label>
+						<div class="col-sm-10">
+							<input type="text" class="form-control" id="SearchStudent" placeholder="Student name">
+						</div>
+
+					</div>
+					<form>
+						<div class="table-responsive-sm">
+							<table class="table">
+								<thead style="color:#fff;">
+									<tr>
+										<th class="col"></th>
+										<th class="col">Rank</th>
+										<th class="col">Name</th>
+										<th class="col">Gender</th>
+										<th class="col">Contact</th>
+										<th class="col">Age</th>
+									</tr>
+								</thead>
+
+								<tbody>
+								<?php
+								$addstudentquery =
+								'SELECT * from tblstudent_info as a left outer join tblstudentclass as b on a.Student_Id = b.Student_id where b.Class_Id IS NULL';
+
+								$availableStudents = mysqli_query($con,$addstudentquery);
+								//$availableStudents=mysqli_fetch_assoc($availableStudents);
+								//var_dump($availableStudents);
+								if(mysqli_num_rows($availableStudents) > 0){
+								while($rows=mysqli_fetch_assoc($availableStudents)){
+								?>
+									<tr>
+										<td class="">
+  										<input type="checkbox" id="" value="" aria-label="">
+										</td>
+										<td class=""><?php echo $rows["Rank"];?></td>
+										<td class=""> <?php echo $rows["Name"];?> </td>
+										<td class=""> <?php echo $rows["Gender"];?> </td>
+										<td class=""> <?php echo $rows["Contact_No"];?> </td>
+										<td class=""> <?php echo $rows["Age"];?> </td>
+									</tr>
+									<?php
+									}
+								}
+								?>
+								</tbody>
+							</table>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
 	$query = 
 	'SELECT * FROM `tblclass` AS `a` 
 	LEFT JOIN tblinstructor_info as `b` 
@@ -23,8 +96,9 @@
 	WHERE Class_Id ='.$Class_Id;
 	$result = mysqli_query($con,$query);
 	$class=mysqli_fetch_assoc($result);
-  ?>
-
+	$result = mysqli_query($con,$query);
+	?>
+	<!-- modal add student end -->
 	<div class="main-panel">
 		<div class="content-wrapper">
 			<div class="container m-2">
@@ -37,8 +111,8 @@
 							<div class="card-body">
 								<h3 class="display-1">
 									<?php 
-		    echo $class['Class_title'];
-		    ?>
+									echo $class['Class_title'];
+									?>
 
 								</h3>
 								<p class="card-text lead">
@@ -50,7 +124,8 @@
 								<p class="card-text">
 									<?php echo $class['Location'];?>
 								</p>
-								<a href="classaddStudent.php?Class_id=<?php echo $Class_Id;?>" class="btn btn-success btn-sm">Add Student</a>
+								<button type="button" data-toggle="modal" data-target="#addStudentModal"
+									class="btn btn-success btn-sm">Add Student</button>
 								<a href="#" class="btn btn-primary btn-sm">Edit Class</a>
 								<a href="#" class="btn btn-danger btn-sm">Delete Class</a>
 							</div>
@@ -79,7 +154,7 @@
 				</div>
 			</div>
 			<div class="row">
-				
+
 
 				<div class="table100 ver5 m-b-110" style="align-self: center;">
 					<table data-vertable="ver5">
@@ -97,7 +172,14 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php
+							<?php
+					$query = 
+					'SELECT * FROM `tblclass` AS `a` 
+					LEFT JOIN tblinstructor_info as `b` 
+					ON a.Instructor_Id = b.Instructor_id
+					WHERE Class_Id ='.$Class_Id;
+					$result = mysqli_query($con,$query);
+					$class=mysqli_fetch_assoc($result);
 					$result = mysqli_query($con,$query);
 					if(mysqli_num_rows($result) > 0){
 				
