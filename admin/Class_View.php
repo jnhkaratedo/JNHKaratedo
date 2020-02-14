@@ -50,7 +50,7 @@
 								<p class="card-text">
 									<?php echo $class['Location'];?>
 								</p>
-								<a href="#" class="btn btn-success btn-sm">Add Student</a>
+								<a href="classaddStudent.php?Class_id=<?php echo $Class_Id;?>" class="btn btn-success btn-sm">Add Student</a>
 								<a href="#" class="btn btn-primary btn-sm">Edit Class</a>
 								<a href="#" class="btn btn-danger btn-sm">Delete Class</a>
 							</div>
@@ -79,10 +79,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<?php
-					$result = mysqli_query($con,$query);
-					if(mysqli_num_rows($result) > 0){
-				?>
+				
 
 				<div class="table100 ver5 m-b-110" style="align-self: center;">
 					<table data-vertable="ver5">
@@ -100,8 +97,11 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php
-             }
+						<?php
+					$result = mysqli_query($con,$query);
+					if(mysqli_num_rows($result) > 0){
+				
+             		
  							   while($rows=mysqli_fetch_assoc($result)){
 						    ?>
 							<tr class="row100">
@@ -124,7 +124,8 @@
 										<img src="images/icons/deleteicon.png" style="height: :9px;width:15px;">
 								</td>
 							</tr>
-							<?php } ?>
+							<?php }
+						} ?>
 						</tbody>
 					</table>
 				</div>

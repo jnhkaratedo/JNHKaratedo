@@ -23,7 +23,7 @@
 	WHERE Class_Id ='.$Class_Id;
 	$result = mysqli_query($con,$query);
 	$class=mysqli_fetch_assoc($result);
-  ?>
+  ?>                                                                                                                                                                                                                                                                                                         
 
     <div class="main-panel">
         <div class="content-wrapper">
