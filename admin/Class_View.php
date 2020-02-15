@@ -89,6 +89,91 @@
 			</div>
 		</div>
 	</div>
+	<!-- modal add student end -->
+	
+
+
+
+<!-- edit class Modal -->
+<div class="modal fade" id="ModalEditClass" tabindex="-1" role="dialog" aria-labelledby="ModalEditClassLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalEditClassLabel">Edit Class</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+	
+	  <form action="editclass.php?Class_id=<?php echo $_GET['Class_id']?>" method="post">
+	  <div class="row">
+	  <?php 
+		//  $editquery = 
+		//  "UPDATE tblclass SET Class_title=value, Location=value2, Date_from=value3, Date_to=value4,Day=value5,
+		//  WHERE Class_Id=value"
+		$getclassquery= "Select * from tblclass where Class_Id=".$_GET['Class_id'];
+
+		$getclassres = $con->query($getclassquery);
+		if ($getclassres->num_rows > 0) {
+			// output data of each row
+			while($row = $getclassres->fetch_assoc()) {
+			
+			 ?>
+				<div class="form-group col-12">
+					<label for="Class_title">Class Title</label>
+					<input type="text" class="form-control" id="Class_title" name="Class_title" value="<?php echo $row['Class_title']?>" placeholder="Class Title">
+				</div>
+				<div class="form-group col-12">
+					<label for="Class_location">Location</label>
+					<input type="text" class="form-control" id="Class_location" name="Class_location" value="<?php echo $row['Location']?>" placeholder="Address">
+				</div>
+				<div class="form-group col-6">
+					<label for="Date_to">Date from</label>
+					<input type="Date" class="form-control" id="Date_from" name="Date_from" value="<?php echo $row['Date_from']?>">
+				</div>
+				<div class="form-group col-6">
+					<label for="Class_location">Date to</label>
+					<input type="Date" class="form-control" id="Date_to" name="Date_to" value="<?php echo $row['Date_to']?>" >
+				</div>
+			<?php }
+		} else {
+			echo "0 results";
+		}
+
+	  ?>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- edit class modal -->
+
+<!-- delete class modal -->
+<div class="modal fade" id="DeleteClassModal" tabindex="-1" role="dialog" aria-labelledby="DeleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content bg-warning text-light">
+      <div class="modal-header">
+        <h5 class="modal-title " id="DeleteModalLabel">Delete</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete this class?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        <a href="deleteclass.php?delete_class=<?php echo $_GET["Class_id"];?>" class="btn btn-danger">Yes</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- delete class modal -->
+
 	<?php
 	$query = 
 	'SELECT * FROM `tblclass` AS `a` 
@@ -99,7 +184,6 @@
 	$class=mysqli_fetch_assoc($result);
 	$result = mysqli_query($con,$query);
 	?>
-	<!-- modal add student end -->
 	<div class="main-panel">
 		<div class="content-wrapper">
 			<div class="container m-2">
@@ -127,8 +211,9 @@
 								</p>
 								<button type="button" data-toggle="modal" data-target="#addStudentModal"
 									class="btn btn-success btn-sm">Add Student</button>
-								<a href="#" class="btn btn-primary btn-sm">Edit Class</a>
-								<a href="#" class="btn btn-danger btn-sm">Delete Class</a>
+								<button type="button" class="btn btn-primary btn-sm" 
+								data-toggle="modal" data-target="#ModalEditClass">Edit Class</button>
+								<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#DeleteClassModal">Delete Class</button>
 							</div>
 						</div>
 					</div>
@@ -158,15 +243,14 @@
 
 
 				<div class="col-12 table-responsive-sm">
-					<table class="table">
-						<thead>
+					<table class="table table-bordered">
+						<thead class="thead-light">
 							<tr class="">
-								<th class="col">Rank</th>
 								<th class="col">Name</th>
+								<th class="col">Rank</th>
 								<th class="col">Gender</th>
 								<th class="col">Contact</th>
-								<th class="col">Age</th>	
-
+								<th class="col">Age</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -211,6 +295,7 @@
 	<script src="js/template.js"></script>
 	<script src="js/todolist.js"></script>
 	<script src="js/dashboard.js"></script>
+
 </body>
 
 </html>
