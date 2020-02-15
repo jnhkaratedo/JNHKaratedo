@@ -33,11 +33,11 @@ require_once('connection.php');
 	  
 				<div class="form-group col-12">
 					<label for="Class_title">Class Title</label>
-					<input type="text" class="form-control" id="Class_title" name="Class_title" value="" placeholder="Class Title">
+					<input type="text" class="form-control" id="Class_title" name="Class_title" value="" placeholder="Class Title" required>
 				</div>
         <div class="form-group col-12">
         <label for="inputState">State</label>
-        <select id="ClassInstructor" name="ClassInstructor" class="form-control">
+        <select id="ClassInstructor" name="ClassInstructor" class="form-control" required>
         <option>Choose instructor</option>
         <?php 
           // get instructors
@@ -62,15 +62,15 @@ require_once('connection.php');
         </div>
 				<div class="form-group col-12">
 					<label for="Class_location">Location</label>
-					<input type="text" class="form-control" id="Class_location" name="Class_location" value="" placeholder="Address">
+					<input type="text" class="form-control" id="Class_location" name="Class_location" value="" placeholder="Address" required>
 				</div>
 				<div class="form-group col-6">
 					<label for="Date_to">Date from</label>
-					<input type="Date" class="form-control" id="Date_from" name="Date_from" value="">
+					<input type="Date" class="form-control" id="Date_from" name="Date_from" value="" required>
 				</div>
 				<div class="form-group col-6">
 					<label for="Class_location">Date to</label>
-					<input type="Date" class="form-control" id="Date_to" name="Date_to" value="" >
+					<input type="Date" class="form-control" id="Date_to" name="Date_to" value="" required>
 				</div>
 		
 		</div>
@@ -163,9 +163,9 @@ if(mysqli_num_rows($result) > 0){
                 <td class="column100 column6" data-column="column6"><?php echo $rows["Date_from"]?></td>
                 <td class="column100 column7" data-column="column7"><?php echo $rows["Date_to"]?></td>
                 <td class="column100 column8" data-column="column8">
-                  <button name="btnprofile" id="btnprofile" class="btn-icon-text">
-                    <a href="Class_View.php?Class_id=<?php echo $rows["Class_Id"];?>">View
-                  </button>
+                  
+                    <a class="btn btn-info" href="Class_View.php?Class_id=<?php echo $rows["Class_Id"];?>">View</a>
+                  
                 </td>
                 <td class="column100 column10" data-column="column10">
                 
