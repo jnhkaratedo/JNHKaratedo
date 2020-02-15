@@ -20,9 +20,10 @@
                 <div>                  
                   <h4 class="font-weight-bold mb-0">INSTRUCTOR LIST</h4>
                 </div>
-                <div>
+                <div class="container-search">
                   <form method="POST" action="admininstructor.php" class="form-group">
                     <input type="search" name="search" placeholder="Search Name" class="form-control form-contro-sm">
+                    <div class="search"></div>
                   </form>
                 </div>
                 <div>
