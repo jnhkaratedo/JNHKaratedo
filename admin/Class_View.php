@@ -33,12 +33,12 @@
 				<div class="modal-body">
 					<div class="form-group row">
 						<label for="SearchStudent" class="col-sm-2 col-form-label">Search</label>
-						<div class="col-sm-10">
+						<div class="col-sm-9">
 							<input type="text" class="form-control" id="SearchStudent" placeholder="Student name">
 						</div>
 
 					</div>
-					<form>
+					<form action="classaddStudent.php?Class_id=<?php echo $_GET["Class_id"]?>" method="post">
 						<div class="table-responsive-sm">
 							<table class="table">
 								<thead style="color:#fff;">
@@ -65,7 +65,7 @@
 								?>
 									<tr>
 										<td class="">
-  										<input type="checkbox" id="" value="" aria-label="">
+  										<input type="checkbox" name="Student_Id[]" value="<?php echo $rows["Student_Id"]?>" aria-label="">
 										</td>
 										<td class=""><?php echo $rows["Rank"];?></td>
 										<td class=""> <?php echo $rows["Name"];?> </td>
@@ -80,11 +80,12 @@
 								</tbody>
 							</table>
 						</div>
-					</form>
+					
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="submit" class="btn btn-primary">Save changes</button>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -156,27 +157,24 @@
 			<div class="row">
 
 
-				<div class="table100 ver5 m-b-110" style="align-self: center;">
-					<table data-vertable="ver5">
+				<div class="col-12 table-responsive-sm">
+					<table class="table">
 						<thead>
-							<tr class="row100 head">
-								<th class="column100 column1" data-column="column1">Rank</th>
-								<th class="column100 column2" data-column="column2">Name</th>
-								<th class="column100 column3" data-column="column3">Gender</th>
-								<th class="column100 column4" data-column="column4">Contact</th>
-								<th class="column100 column5" data-column="column5">Age</th>
-								<th class="column100 column6" data-column="column6"></th>
-								<th class="column100 column7" data-column="column7"></th>
-								<th class="column100 column8" data-column="column8"></th>
+							<tr class="">
+								<th class="col">Rank</th>
+								<th class="col">Name</th>
+								<th class="col">Gender</th>
+								<th class="col">Contact</th>
+								<th class="col">Age</th>	
 
 							</tr>
 						</thead>
 						<tbody>
 							<?php
 					$query = 
-					'SELECT * FROM `tblclass` AS `a` 
-					LEFT JOIN tblinstructor_info as `b` 
-					ON a.Instructor_Id = b.Instructor_id
+					'SELECT * FROM `tblstudent_info` AS `a` 
+					LEFT JOIN `tblstudentclass` as `b` 
+					ON a.Student_Id = b.Student_id
 					WHERE Class_Id ='.$Class_Id;
 					$result = mysqli_query($con,$query);
 					$class=mysqli_fetch_assoc($result);
@@ -187,24 +185,12 @@
  							   while($rows=mysqli_fetch_assoc($result)){
 						    ?>
 							<tr class="row100">
-								<td class="column100 column1" data-column="column1"></td>
-								<td cla ss="column100 column2" data-column="column2"></td>
-								<td class="column100 column3" data-column="column3"></td>
-								<td class="column100 column4" data-column="column4"></td>
-								<td class="column100 column5" data-column="column5"></td>
-								<td class="column100 column8" data-column="column8">
-									<button name="btnprofile" id="btnprofile" class="btn-icon-text">
-										<a href="instructorprofile.php?Class_id=">View
-									</button>
-								</td>
-								<td class="column100 column9" data-column="column9">
-									<a name="btnedit2" id="btnedit2" class="btn-icon-prepend" href="add.php?">
-										<img src="images/icons/editicon.png" style="height: :9px;width:15px;"></a>
-								</td>
-								<td class="column100 column10" data-column="column10">
-									<a name="btndelete" id="btndelete" class="btn-icon-prepend" href="#">
-										<img src="images/icons/deleteicon.png" style="height: :9px;width:15px;">
-								</td>
+								<td><?php echo $rows['Name'];?></td>
+								<td> <?php echo $rows['Rank'];?> </td>
+								<td><?php echo $rows['Gender'];?></td>
+								<td><?php echo $rows['Contact_No'];?></td>
+								<td><?php echo $rows['Age'];?></td>
+								
 							</tr>
 							<?php }
 						} ?>
