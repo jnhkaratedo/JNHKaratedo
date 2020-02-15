@@ -81,7 +81,7 @@ require_once('connection.php');
     </div>
   </div>
 </div>
-<!-- add class modal -->
+<!-- add class modal fDFaf-->
 
 <!-- delete class modal -->
 <div class="modal fade" id="DeleteClassModal" tabindex="-1" role="dialog" aria-labelledby="DeleteModalLabel" aria-hidden="true">
