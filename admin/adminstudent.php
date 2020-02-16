@@ -7,24 +7,25 @@
   <title>JNH-Karatedo Admin</title>
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="admin/css/style.css">
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 <body>
   <?php include'_navbar.php'; ?>
+
    <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
             <div class="col-md-12 grid-margin">
+                <div class="search-container">
+                  <form method="POST" action="adminstudent.php">
+                  <input type="text" name="search" placeholder="Search..." class="form-control form-contro-sm">
+                    <div class="search"></div>
+                  </form>
+                </div>
               <div class="d-flex justify-content-between align-items-center">
                 <div>
                   <h4 class="font-weight-bold mb-0">STUDENT LIST</h4>
-                </div>
-                                <div>
-                  <form method="POST" action="adminstudent.php">
-                    <input type="text" name="search" placeholder="Search Name">
-                    <input type="submit" value="SEARCH">
-                  </form>
                 </div>
                 <div>
                     <a class="ti-clipboard btn-icon-prepend btn btn-primary btn-icon-text btn-rounded" href="add.php?add=true&student=true"> 
