@@ -138,10 +138,10 @@ if(mysqli_num_rows($result) > 0){
           <table data-vertable="ver5">
             <thead>
               <tr class="row100 head">
-                <th class="column100 column1" data-column="column1">Id</th>
-                <th class="column100 column2" data-column="column2">Class Title</th>
+                <th class="column100 columnc1" data-column="column1">Id</th>
+                <th class="column100 columnc2" data-column="column2">Class Title</th>
                 <th class="column100 column3" data-column="column3">Instructor</th>
-                <th class="column100 column4" data-column="column4">Location</th>
+                <th class="column100 columnc4" data-column="column4">Location</th>
                 <th class="column100 column5" data-column="column5">Day</th>
                 <th class="column100 column6" data-column="column6">Date From</th>
                 <th class="column100 column7" data-column="column7">Date To</th>
@@ -155,10 +155,10 @@ if(mysqli_num_rows($result) > 0){
     while($rows=mysqli_fetch_assoc($result)){
     ?>
               <tr class="row100">
-                <td class="column100 column1" data-column="column1"><?php echo $rows["Class_Id"];?></td>
-                <td class="column100 column2" data-column="column2"><?php echo $rows["Class_title"]?></td>
+                <td class="column100 columnc1" data-column="column1"><?php echo $rows["Class_Id"];?></td>
+                <td class="column100 columnc2" data-column="column2"><?php echo $rows["Class_title"]?></td>
                 <td class="column100 column3" data-column="column3"><?php echo $rows["Name"]?></td>
-                <td class="column100 column4" data-column="column4"><?php echo $rows["Location"]?></td>
+                <td class="column100 columnc4" data-column="column4"><?php echo $rows["Location"]?></td>
                 <td class="column100 column5" data-column="column5"><?php echo $rows["Day"]?></td>
                 <td class="column100 column6" data-column="column6"><?php echo $rows["Date_from"]?></td>
                 <td class="column100 column7" data-column="column7"><?php echo $rows["Date_to"]?></td>
