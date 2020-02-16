@@ -7,9 +7,9 @@ require_once('connection.php');
 	} else{
 		$query= "select * from tblusers where Username='".$_POST['username']."' and Password='".$_POST['password']."'";
 		$result = mysqli_query($con,$query);
-		if(mysqli_fetch_assoc($result)){
+		if($row=mysqli_fetch_assoc($result)){
 			$_SESSION["username"]=$_POST['username'];
-			$_SESSION['role']=$result['Role'];
+			$_SESSION['role']=$row['Role'];
 			header("location:index.php");
 		}else{
 			header("location:login.php?Invalid=Enter Correct Username or Password");
