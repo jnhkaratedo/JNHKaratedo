@@ -57,26 +57,16 @@ if($_SESSION['username']!=true){
               <span class="menu-title">Reservation List</span>
             </a>
           </li>
-<<<<<<< HEAD
-         <?php
-         if ($_SESSION['role']=="super_user") {
-          ?>
-=======
 <?php
 if ($_SESSION['role']=="super_user") {
 ?>
->>>>>>> a82d514f3e2017ec05ac4f6d5b7ab57a549c02da
           <li class="nav-item">
             <a class="nav-link" href="adminmanager.php">
               <i class="ti-user menu-icon"></i>
               <span class="menu-title">Manager List</span>
             </a>
           </li>
-<<<<<<< HEAD
-          <?php }?>
-=======
 <?php }?>
->>>>>>> a82d514f3e2017ec05ac4f6d5b7ab57a549c02da
           <li class="nav-item">
             <a class="nav-link" href="adminclass.php">
               <i class="ti-clipboard menu-icon"></i>
