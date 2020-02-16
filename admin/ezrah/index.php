@@ -14,6 +14,9 @@
     <link href="bootstrap4/css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
     <style>
+    body {
+      margin-top:50px;
+    }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
