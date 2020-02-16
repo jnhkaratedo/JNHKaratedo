@@ -18,18 +18,17 @@
           <div class="row">
             <div class="col-md-12 grid-margin">
                 <div class="search-container">
-                  <form method="POST" action="adminstudent.php">
+                  <form method="POST" action="adminmanager.php">
                   <input type="text" name="search" placeholder="Search..." class="form-control form-contro-sm">
                     <div class="search"></div>
                   </form>
                 </div>
               <div class="d-flex justify-content-between align-items-center">
                 <div>
-                  <h4 class="font-weight-bold mb-0">STUDENT LIST</h4>
+                  <h4 class="font-weight-bold mb-0">MANAGER LIST</h4>
                 </div>
                 <div>
-                    <a class="ti-clipboard btn-icon-prepend btn btn-primary btn-icon-text btn-rounded" href="add.php?add=true&student=true"> 
-                      <!-- <a class="ti-clipboard btn-icon-prepend" style="color: white;" name="addstudent" id="addstudent" href="add.php?add=true"> -->ADD<!-- </a> -->
+                    <a class="ti-clipboard btn-icon-prepend btn btn-primary btn-icon-text btn-rounded" href="addmanager.php">ADD
                     </a>
                 </div>
               </div>
@@ -42,10 +41,10 @@ require_once('connection.php');
 if (isset($_POST['search'])) {
 $search=$_POST['search'];
 $search=preg_replace("#[^0-9a-z]#i"," ",$search);
-$query = "SELECT * FROM tblstudent_info WHERE Name LIKE '%$search%'";
+$query = "SELECT * FROM tblmanager WHERE Name LIKE '%$search%'";
 $result = mysqli_query($con,$query);
 }else{
-$query = 'SELECT * FROM tblstudent_info';
+$query = 'SELECT * FROM tblmanager';
 $result = mysqli_query($con,$query);
 }
 if(mysqli_num_rows($result) > 0){
@@ -57,10 +56,13 @@ if(mysqli_num_rows($result) > 0){
                             <tr class="row100 head">
                                 <th class="column100 column1" data-column="column1">Id</th>
                                 <th class="column100 column2" data-column="column2">Fullname</th>
-                                 <th class="column100 column3" data-column="column3">Rank</th>
-                                <th class="column100 column4" data-column="column4"></th>
-                                <th class="column100 column5" data-column="column5"></th>
-                                <th class="column100 column6" data-column="column6"></th>
+                                <th class="column100 column3" data-column="column3">Gender</th>
+                                 <th class="column100 column4" data-column="column4">Address</th>
+                                 <th class="column100 column5" data-column="column5">Birthday</th>
+                                <th class="column100 column6" data-column="column6">Age</th>
+                                 <th class="column100 column7" data-column="column7">Contact No</th>
+                                <th class="column100 column8" data-column="column8"></th>
+                                <th class="column100 column9" data-column="column9"></th>
                         
                             </tr>
                         </thead>
@@ -69,20 +71,19 @@ if(mysqli_num_rows($result) > 0){
     while($rows=mysqli_fetch_assoc($result)){
     ?>
             <tr class="row100">
-                <td class="column100 column1" data-column="column1"><?php echo $rows["Student_Id"] ?></td>
-                <td class="column100 column2" data-column="column2"><?php echo $rows["Name"]?></td>
-                <td class="column100 column3" data-column="column3"><?php echo $rows['Rank']?></td>
-                <td class="column100 column4" data-column="column4">
-                  <button name="btnprofile" id="btnprofile" class="btn-icon-text">
-                    <a href="studentprofile.php?id=<?php echo $rows['Student_Id']?>">Profile
-                  </button>
-                </td>
-                <td class="column100 column5" data-column="column5">
-                   <a name="btnedit" id="btnedit" class="btn-icon-prepend" href="add.php?edit=<?php echo $rows['Student_Id']?>&student=true&add=true;">
+                <td class="column100 column1" data-column="column1"><?php echo $rows["manager_id"];?></td>
+                <td class="column100 column2" data-column="column2"><?php echo $rows["Name"];?></td>
+                <td class="column100 column3" data-column="column2"><?php echo $rows["Gender"];?></td>
+                <td class="column100 column4" data-column="column3"><?php echo $rows['Address'];?></td>
+                <td class="column100 column5" data-column="column4"><?php echo $rows["Birthday"];?></td>
+                <td class="column100 column6" data-column="column5"><?php echo $rows["Age"];?></td>
+                <td class="column100 column7" data-column="column6"><?php echo $rows["Contact_No"];?></td>
+                <td class="column100 column8" data-column="column7">
+                   <a name="btnedit" id="btnedit" class="btn-icon-prepend" href="addmanager.php?edit=<?php echo $rows['manager_id']?>">
                    <img src="images/icons/editicon.png" style="height: :9px;width:15px;"> </a>
                </td> 
-                 <td class="column100 column6" data-column="column6">
-                    <a name="btndelete" id="btndelete" class="btn-icon-prepend" href="process.php?dels=<?php echo $rows['Student_Id']?>">
+                 <td class="column100 column9" data-column="column8">
+                    <a name="btndelete" id="btndelete" class="btn-icon-prepend" href="manager.php?delete=<?php echo $rows['manager_id']?>">
                      <img src="images/icons/deleteicon.png"  style="height: :9px;width:15px;">
                 </td>   
             </tr>
@@ -96,8 +97,6 @@ if(mysqli_num_rows($result) > 0){
 }
 ?>
           </div>       
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
    <?php include'_footer.php'; ?>
         <!-- partial -->
       </div>

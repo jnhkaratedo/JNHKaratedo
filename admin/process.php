@@ -9,6 +9,7 @@ require_once('connection.php');
 		$result = mysqli_query($con,$query);
 		if(mysqli_fetch_assoc($result)){
 			$_SESSION["username"]=$_POST['username'];
+			$_SESSION['role']=$result['Role'];
 			header("location:index.php");
 		}else{
 			header("location:login.php?Invalid=Enter Correct Username or Password");
