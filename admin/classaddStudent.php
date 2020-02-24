@@ -12,6 +12,7 @@ foreach ($student_id as $val){
     values ('.$class_id.','.$val.')";
     if ($con->query($query) === TRUE) {
         echo "New record created successfully";
+        header('Location:Class_View.php?Class_id='.$class_id);
     } else {
         echo "Error: " . $query . "<br>" . $con->error;
     }
