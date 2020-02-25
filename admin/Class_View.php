@@ -22,7 +22,7 @@
 	<!-- Modal -->
 	<div class="modal fade" id="addStudentModal" tabindex="-1" role="dialog" aria-labelledby="addStudentModalLabel"
 		aria-hidden="true">
-		<div class="modal-dialog" role="document">
+		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="addStudentModalLabel">Add Students</h5>
@@ -39,7 +39,7 @@
 
 					</div>
 					<form action="classaddStudent.php?Class_id=<?php echo $_GET["Class_id"]?>" method="post">
-						<div class="table-responsive-sm">
+						<div class="table-responsive">
 							<table class="table">
 								<thead style="color:#fff;">
 									<tr>
@@ -176,10 +176,12 @@
 
 	<?php
 	$query = 
-	'SELECT * FROM `tblclass` AS `a` 
-	LEFT JOIN tblinstructor_info as `b` 
-	ON a.Instructor_Id = b.Instructor_id
-	WHERE Class_Id ='.$Class_Id;
+	'SELECT * FROM `tblclass` AS `a`
+	JOIN tblinstructor_class as `b`
+	ON a.`Class_Id` = b.`class_id`
+	join tblinstructor_info as `c`
+	on b.`instructor_id` = c.`Instructor_Id`
+	where is_deleted = 0 and a.Class_Id ='.$Class_Id;
 	$result = mysqli_query($con,$query);
 	$class=mysqli_fetch_assoc($result);
 	$result = mysqli_query($con,$query);

@@ -143,9 +143,9 @@ $result = mysqli_query($con,$query);
 if(mysqli_num_rows($result) > 0){
 ?>
 
-        <div class="container-fluid">
-          <table class="table table-striped">
-            <thead class="thead-light">
+        <div class="container-fluid table-responsive">
+          <table class="table table-striped table-hover table-md">
+            <thead class="thead-light ">
               <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Class Title</th>
@@ -154,8 +154,8 @@ if(mysqli_num_rows($result) > 0){
                 <th scope="col">Day</th>
                 <th scope="col">Date From</th>
                 <th scope="col">Date To</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col">Action</th>
+                
 
               </tr>
             </thead>
@@ -163,7 +163,7 @@ if(mysqli_num_rows($result) > 0){
               <?php
     while($rows=mysqli_fetch_assoc($result)){
     ?>
-              <tr class="row100">
+              <tr>
                 <td><?php echo $rows["Class_Id"];?></td>
                 <td><?php echo $rows["Class_title"]?></td>
                 <td><?php echo $rows["Name"]?></td>
@@ -172,14 +172,11 @@ if(mysqli_num_rows($result) > 0){
                 <td><?php echo $rows["Date_from"]?></td>
                 <td><?php echo $rows["Date_to"]?></td>
                 <td>
-                  <a class="btn btn-info" href="Class_View.php?Class_id=<?php echo $rows["Class_Id"];?>">View</a>
+                  <a class="btn btn-info" href="Class_View.php?Class_id=<?php echo $rows["Class_Id"];?>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
 
-                </td>
-                <td>
-
-                  <button type="button" data-toggle="modal" data-target="#DeleteClassModal"
+                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#DeleteClassModal"
                     data-title="<?php echo $rows["Class_title"];?>" data-id="<?php echo $rows['Class_Id'];?>">
-                    <img src="images/icons/deleteicon.png" style="height: :9px;width:15px;"></button>
+                    <i class="fa fa-trash-o" aria-hidden="true"></i></button>
                   <!-- <a name="btndelete" id="btndelete" class="btn-icon-prepend"
                     href="deleteclass.php?delete_class="> -->
 
