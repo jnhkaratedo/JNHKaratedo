@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fontawesome/css/font-awesome.css" />
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
@@ -164,7 +165,7 @@
             </div>
           </div>
         </div>
-        <?php }else if ($_GET['add']==true&&$_GET['instructor']==true) {
+    <?php }else if ($_GET['add']==true&&$_GET['instructor']==true) {
     if (isset($_GET['edit2'])) {
       $id=$_GET['edit2'];
       $query="SELECT * FROM tblinstructor_info WHERE Instructor_Id=$id";
@@ -263,6 +264,9 @@
             </div>
           </div>
         </div>
+        <script type="text/javascript" src="js/jqueryV3.4.1.js"></script>
+        <script type="text/javascript" src="js/popper.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
         <script src="vendors/base/vendor.bundle.base.js"></script>
         <script src="vendors/chart.js/Chart.min.js"></script>
         <script src="js/off-canvas.js"></script>

@@ -83,7 +83,7 @@ require_once('connection.php');
 			var_dump($query);
 			if($con->query($query)===true)
 				{
-				header("location:adminstudent.php");
+				header("location:admininstructor.php");
 			} else {
 				echo "Error:".$query."<br>".$con->error;
 			}
