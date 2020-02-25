@@ -66,7 +66,8 @@ if ($_SESSION['role']=="super_user") {
               <span class="menu-title">Manager List</span>
             </a>
           </li>
-<?php }?>
+          <?php }?>
+
           <li class="nav-item">
             <a class="nav-link" href="adminclass.php">
               <i class="ti-clipboard menu-icon"></i>
