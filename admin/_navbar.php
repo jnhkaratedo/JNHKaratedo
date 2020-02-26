@@ -5,12 +5,7 @@ if($_SESSION['username']!=true){
     die();
 }
 ?>
-<!-- <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="images/favicon.png" /> -->
+
 <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -42,7 +37,7 @@ if($_SESSION['username']!=true){
       </div>
     </nav>
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <div class="container-fluid px-0 page-body-wrapper">
       <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color:  #800000">
         <ul class="nav">
           <li class="nav-item">

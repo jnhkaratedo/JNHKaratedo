@@ -10,7 +10,7 @@ require_once('connection.php');
   <title>JNH-Karatedo Admin</title>
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
-  <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+  <!-- <link rel="stylesheet" href="css/bootstrap/bootstrap.css"> -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="images/favicon.png" />
   <link rel="stylesheet" href="css/fontawesome/css/font-awesome.css"/>
@@ -136,7 +136,7 @@ JOIN tblinstructor_class AS `b`
 ON a.`Class_Id` = b.`class_id`
 JOIN tblinstructor_info AS `c`
 ON b.`instructor_id` = c.`Instructor_Id`
-WHERE is_deleted = 0';
+WHERE a.is_deleted = 0';
 
 $result = mysqli_query($con,$query);
 
@@ -198,7 +198,10 @@ if(mysqli_num_rows($result) > 0){
   </div>
   <script type="text/javascript" src="js/jqueryV3.4.1.js"></script>
   <script type="text/javascript" src="js/popper.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+  
+  <!-- 
+   currently the pages that have this script result to the dropdowns not showing.  
+    <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script> -->
   <script src="vendors/base/vendor.bundle.base.js"></script>
   <script src="vendors/chart.js/Chart.min.js"></script>
   <script src="js/off-canvas.js"></script>

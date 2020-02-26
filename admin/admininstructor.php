@@ -14,29 +14,116 @@
 </head>
 
 <body>
-  <?php include'_navbar.php'; ?>
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="ModalAddInstructor" tabindex="-1" role="dialog" aria-labelledby="ModalAddInstructorLabel"
+    aria-hidden="true">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content ">
+        <div class="modal-body p-0 bg-success text-light">
+          <div class="container-fluid p-3">
+            <h5 class="modal-title" id="ModalAddInstructorLabel">Add New Instructor
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </h5>
+          </div>
+
+          <div class="col-12 d-flex justify-content-center py-5">
+            <img src="images/user-default-grey.png" alt="" class="img-fluid mx-auto shadow-md"
+              style="height:150px;border-radius:50%;border:solid 1px red;" />
+          </div>
+          <div class="container-fluid p-3 bg-light text-dark">
+            <form action="addinstructor.php" method="post" enctype="multipart/form-data">
+              <div class="form-row">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="instrImage" name="instrImage">
+                  <label class="custom-file-label" for="customFile">Upload Profile picture</label>
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="instrName">Name</label>
+                  <input type="text" class="form-control" id="instrName" name="instrName" placeholder="Juan D Dela Cruz">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="instrRank">Rank</label>
+                  <input type="text" class="form-control" id="instrRank" name="instrRank" placeholder="belt color">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="instrRank">Email</label>
+                  <input type="email" class="form-control" id="instrEmail" name="instrEmail" placeholder="belt color">
+                </div>
+                <div class="form-group col-md-12">
+                  <label for="instrRank">Contact</label>
+                  <input type="int" class="form-control" id="instrContact" name="instrContact" placeholder="09-xxx-xxxx">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="instrBday">birthdate</label>
+                <input type="date" class="form-control" id="instrBday" name="instrBday" max="2002-01-01" required>
+              </div>
+              <div class="form-group">
+                <label for="instrAddress">Address</label>
+                <input type="text" class="form-control" id="instrAddress" name="instrAddress"
+                  placeholder="house number, street, barangay, municipality, city">
+              </div>
+
+
+
+
+
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </form>
+          </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  <!-- modal -->
+  <?php
+  include'_navbar.php';
+  require_once('connection.php'); 
+   ?>
   <div class="main-panel">
     <div class="content-wrapper">
       <div class="row">
-        <div class="col-md-12 grid-margin">
-          <div class="d-flex justify-content-between align-items-center">
-            <div>
-              <h4 class="font-weight-bold mb-0">INSTRUCTOR LIST</h4>
+
+
+        <div class="col-md-6">
+          <h4 class="font-weight-bold mb-0">INSTRUCTOR LIST</h4>
+        </div>
+        <div class="col-md-6">
+          <!-- <a class="ti-clipboard btn-icon-prepend btn btn-primary btn-icon-text btn-rounded" href="addmanager.php">ADD
+                    </a> -->
+          <div class="row">
+            <div class="col-md-4 mb-3 text-right">
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-outline-primary btn-rounded" data-toggle="modal"
+                data-target="#ModalAddInstructor">
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+              </button>
             </div>
-            <div class="container-search">
-              <form method="POST" action="admininstructor.php" class="form-group">
-                <input type="search" name="search" placeholder="Search Name" class="form-control form-contro-sm">
-                <div class="search"></div>
+            <div class="col-md-8">
+              <form method="POST" action="admininstructor.php">
+                <div class="input-group mb-3">
+                  <input type="search" name="search" class="form-control">
+                  <div class="input-group-append">
+                    <button class="btn btn-success" type="submit">Search</button>
+                  </div>
+                </div>
               </form>
-            </div>
-            <div>
-              <a class="btn btn-outline-primary btn-rounded" href="instructor_add.php"><i
-                  class="fa fa-user-plus" aria-hidden="true"></i>
-              </a>
             </div>
           </div>
         </div>
+
       </div>
+
       <div class="row">
         <?php
 $output='';

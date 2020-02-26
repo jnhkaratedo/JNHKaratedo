@@ -7,7 +7,7 @@
   <title>JNH-Karatedo Admin</title>
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
-  <link rel="stylesheet" href="admin/css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="images/favicon.png" />
 </head>
 <body>
