@@ -1,3 +1,13 @@
+<?php
+if(session_status()!=PHP_SESSION_ACTIVE) {
+  session_start();
+}
+if($_SESSION['username']!=true){
+    header('Location:login.php');
+    die();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +29,7 @@
 
 
   <!-- Modal -->
-  <div class="modal fade" id="ModalAddInstructor" tabindex="-1" role="dialog" aria-labelledby="ModalAddInstructorLabel"
+  <div class="modal fade show" id="ModalAddInstructor" tabindex="-1" role="dialog" aria-labelledby="ModalAddInstructorLabel"
     aria-hidden="true">
     <div class="modal-dialog " role="document">
       <div class="modal-content ">
@@ -40,12 +50,12 @@
             <form action="addinstructor.php" method="post" enctype="multipart/form-data">
               <div class="form-row">
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="instrImage" name="instrImage">
+                  <input type="file" class="custom-file-input" id="instrImage" name="instrImage" required>
                   <label class="custom-file-label" for="customFile">Upload Profile picture</label>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="instrName">Name</label>
-                  <input type="text" class="form-control" id="instrName" name="instrName" placeholder="Juan D Dela Cruz">
+                  <input type="text" class="form-control" id="instrName" name="instrName" placeholder="Juan D Dela Cruz" required>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="instrRank">Rank</label>
@@ -53,11 +63,11 @@
                 </div>
                 <div class="form-group col-md-12">
                   <label for="instrRank">Email</label>
-                  <input type="email" class="form-control" id="instrEmail" name="instrEmail" placeholder="belt color">
+                  <input type="email" class="form-control" id="instrEmail" name="instrEmail" placeholder="belt color" required>
                 </div>
                 <div class="form-group col-md-12">
                   <label for="instrRank">Contact</label>
-                  <input type="int" class="form-control" id="instrContact" name="instrContact" placeholder="09-xxx-xxxx">
+                  <input type="int" class="form-control" id="instrContact" name="instrContact" placeholder="09-xxx-xxxx" requeired>
                 </div>
               </div>
 
@@ -66,9 +76,18 @@
                 <input type="date" class="form-control" id="instrBday" name="instrBday" max="2002-01-01" required>
               </div>
               <div class="form-group">
+                <label for="instrGender">Gender</label>
+                <select id="instrGender" name="instrGender" class="form-control">
+                  <option selected>Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="others">others</option>
+                </select>
+              </div>
+              <div class="form-group">
                 <label for="instrAddress">Address</label>
                 <input type="text" class="form-control" id="instrAddress" name="instrAddress"
-                  placeholder="house number, street, barangay, municipality, city">
+                  placeholder="house number, street, barangay, municipality, city" required>
               </div>
 
 
@@ -193,7 +212,7 @@ if(mysqli_num_rows($result) > 0){
   </div>
   <script type="text/javascript" src="js/jqueryV3.4.1.js"></script>
   <script type="text/javascript" src="js/popper.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
+  <!-- <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script> -->
   <script src="vendors/base/vendor.bundle.base.js"></script>
   <script src="vendors/chart.js/Chart.min.js"></script>
   <script src="js/off-canvas.js"></script>
@@ -201,6 +220,27 @@ if(mysqli_num_rows($result) > 0){
   <script src="js/template.js"></script>
   <script src="js/todolist.js"></script>
   <script src="js/dashboard.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+  <script>
+  $(document).ready(function(){
+    <?php 
+      if(isset($_SESSION["status"])){
+      ?>swal({
+      title: "Message",
+      text: "<?php echo $_SESSION["status"];?>",
+      icon: "warning",
+      button: "ok"
+
+    });
+      <?php 
+    unset($_SESSION["status"]);  
+    
+    }
+      
+      ?>
+  });
+  </script>
 </body>
 
 </html>

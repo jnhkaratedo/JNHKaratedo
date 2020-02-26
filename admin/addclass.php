@@ -8,7 +8,7 @@ $title = $_POST['Class_title'];
 $loc = $_POST['Class_location'];
 $dfrom = $_POST['Date_from'];
 $dto = $_POST['Date_to'];
-$day = date("D", strtotime($_POST['Date_from']));
+$day = date("l", strtotime($_POST['Date_from']));
 // prepare and bind
 $stmt = $con->prepare("INSERT INTO tblclass (Class_title, Location, Date_from, Date_to, Day) VALUES (?, ?, ?, ?, ?)");
 
