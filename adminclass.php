@@ -1,22 +1,7 @@
+
 <?php 
-require_once('connection.php');
-?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>JNH-Karatedo Admin</title>
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
-  <!-- <link rel="stylesheet" href="css/bootstrap/bootstrap.css"> -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <link rel="stylesheet" href="css/fontawesome/css/font-awesome.css"/>
-</head>
-
-<body>
+include'header.php';
+include'_navbar.php'; ?>
   <!-- add class Modal -->
   <div class="modal fade" id="ModalEditClass" tabindex="-1" role="dialog" aria-labelledby="ModalEditClassLabel"
     aria-hidden="true">
@@ -109,7 +94,7 @@ require_once('connection.php');
     </div>
   </div>
   <!-- delete class modal -->
-  <?php include'_navbar.php'; ?>
+  
   <div class="main-panel">
     <div class="content-wrapper">
       <div class="row">
@@ -193,23 +178,13 @@ if(mysqli_num_rows($result) > 0){
 ?>
       </div>
       <?php include'_footer.php'; ?>
+      <!-- partial -->
     </div>
+    <!-- main-panel ends -->
   </div>
+  <!-- page-body-wrapper ends -->
   </div>
-  <script type="text/javascript" src="js/jqueryV3.4.1.js"></script>
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  
-  <!-- 
-   currently the pages that have this script result to the dropdowns not showing.  
-    <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script> -->
-  <script src="vendors/base/vendor.bundle.base.js"></script>
-  <script src="vendors/chart.js/Chart.min.js"></script>
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/todolist.js"></script>
-  <script src="js/dashboard.js"></script>
-
+<?php include'scripts.php';?>
   <script>
     $(document).ready(function () {
       $('#DeleteClassModal').on('show.bs.modal', function (event) {

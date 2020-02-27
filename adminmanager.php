@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>JNH-Karatedo Admin</title>
-  
-  <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
-  <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="images/favicon.png" />
-  <style>
-  .form-check-input {
-    margin-left: 0!important;
-  }
-  </style>
-</head>
-
-<body>
-  <?php include'_navbar.php'; ?>
+  <?php 
+  include'header.php';
+  include'_navbar.php'; ?>
   <!-- Add manager modal -->
   <div class="modal fade" id="ModalAddManager" tabindex="-1" role="dialog" aria-labelledby="ModalAddManagerLabel"
     aria-hidden="true">
@@ -176,25 +158,7 @@ if(mysqli_num_rows($result) > 0){
   </div>
   <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <script type="text/javascript" src="js/jqueryV3.4.1.js"></script>
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <script type="text/javascript" src="js/bootstrap/bootstrap.js"></script>
-  <!-- plugins:js -->
-  <script src="vendors/base/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page-->
-  <script src="vendors/chart.js/Chart.min.js"></script>
-  <!-- End plugin js for this page-->
-  <!-- inject:js -->
-  <script src="js/off-canvas.js"></script>
-  <script src="js/hoverable-collapse.js"></script>
-  <script src="js/template.js"></script>
-  <script src="js/todolist.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page-->
-  <script src="js/dashboard.js"></script>
-  <!-- End custom js for this page-->
+  <?php include'scripts.php';?>
 </body>
 
 </html>
