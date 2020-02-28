@@ -1,7 +1,8 @@
-
-<?php 
-include'header.php';
-include'_navbar.php'; ?>
+<?php
+include 'session.php';
+include 'header.php';
+include_once '_navbar.php';
+?>
   <!-- add class Modal -->
   <div class="modal fade" id="ModalEditClass" tabindex="-1" role="dialog" aria-labelledby="ModalEditClassLabel"
     aria-hidden="true">

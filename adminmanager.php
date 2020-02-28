@@ -1,7 +1,8 @@
-
-  <?php 
-  include'header.php';
-  include'_navbar.php'; ?>
+<?php
+include 'session.php';
+include 'header.php';
+include_once '_navbar.php';
+?>
   <!-- Add manager modal -->
   <div class="modal fade" id="ModalAddManager" tabindex="-1" role="dialog" aria-labelledby="ModalAddManagerLabel"
     aria-hidden="true">

@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>JNH-Karatedo Admin</title>
-  <!-- <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css"> -->
-  <link rel="stylesheet" href="vendors/base/vendor.bundle.base.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="images/favicon.png" />
-</head>
-<body>
-  <?php include'_navbar.php'; ?>
-
+<?php
+include 'session.php';
+include 'header.php';
+include_once '_navbar.php';
+?>
    <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">

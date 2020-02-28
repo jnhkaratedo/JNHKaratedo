@@ -1,11 +1,8 @@
 <?php
-include'header.php';
+include 'session.php';
+include 'header.php';
+include_once '_navbar.php';
 ?>
-
-
-
-
-
 <!-- Modal -->
 <div class="modal fade show" id="ModalAddInstructor" tabindex="-1" role="dialog"
   aria-labelledby="ModalAddInstructorLabel" aria-hidden="true">
@@ -86,9 +83,6 @@ include'header.php';
   </div>
 </div>
 <!-- modal -->
-<?php
-  include'_navbar.php';
-   ?>
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
