@@ -1,9 +1,9 @@
-
-<?php 
-include'header.php';
-include'_navbar.php';
-      require_once('connection.php'); 
-                          ?>
+<?php
+include 'session.php';
+include 'header.php';
+include_once '_navbar.php';
+?>
+                          
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
@@ -115,7 +115,8 @@ if ($_SESSION['role']=="super_user") {
               </div>
             </div>
           </div>
-        <?php include'_footer.php'; ?>
+        <?php include'_footer.php';
+        ?>
       </div>
     </div>
   </div>

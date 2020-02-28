@@ -1,9 +1,8 @@
-
- <?php 
- 
- include'header.php';
- include'_navbar.php';?>
-      <!-- partial -->
+<?php
+include 'session.php';
+include 'header.php';
+include_once '_navbar.php';
+?>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">

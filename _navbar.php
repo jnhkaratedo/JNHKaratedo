@@ -1,14 +1,3 @@
-<?php 
-if(session_status()!=PHP_SESSION_ACTIVE) {
-  session_start();
-}
-if($_SESSION['username']!=true){
-    header('Location:login.php');
-    die();
-}
-
-?>
-
 <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -27,7 +16,7 @@ if($_SESSION['username']!=true){
               <img src="images/cyh.jpg" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item" href="Logout.php">
+              <a class="dropdown-item" href="logout.php">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>

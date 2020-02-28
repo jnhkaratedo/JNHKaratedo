@@ -20707,12 +20707,14 @@ dl li {
 }
 
 .sidebar .nav .nav-item .nav-link .menu-title {
-  color: inherit;
+  color: #fff;
   display: inline-block;
   font-size: 0.875rem;
   line-height: 1;
   vertical-align: middle;
   margin-top: 2px;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
 }
 
 .sidebar .nav .nav-item .nav-link .badge {
