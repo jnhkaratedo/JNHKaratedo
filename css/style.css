@@ -21419,7 +21419,7 @@ overflow-x:auto;
 }
 .column100.column2 {
   width: 700px;
-align: center;
+  align-self: center;
   padding-left: 42px;
 }
 
